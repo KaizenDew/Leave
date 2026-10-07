@@ -14,6 +14,7 @@ public class LeaveType
 {
     public int Id { get; set; }
     public string Name { get; set; } = "";
+    public string Code { get; set; } = "";
 }
 
 public class LeaveRequest
@@ -43,10 +44,13 @@ public class AppDb(DbContextOptions<AppDb> o) : DbContext(o)
     protected override void OnModelCreating(ModelBuilder b)
     {
         b.Entity<User>().HasIndex(u => u.Email).IsUnique();
+        b.Entity<LeaveType>().HasIndex(t => t.Code).IsUnique();
         b.Entity<LeaveType>().HasData(
-            new LeaveType { Id = 1, Name = "Yıllık İzin" },
-            new LeaveType { Id = 2, Name = "Hastalık İzni" },
-            new LeaveType { Id = 3, Name = "Mazeret İzni" },
-            new LeaveType { Id = 4, Name = "Ücretsiz İzin" });
+            new LeaveType { Id = 1, Name = "Yıllık İzin", Code = "ANNUAL" },
+            new LeaveType { Id = 2, Name = "Hastalık İzni", Code = "SICK" },
+            new LeaveType { Id = 3, Name = "Mazeret İzni", Code = "EXCUSE" },
+            new LeaveType { Id = 4, Name = "Ücretsiz İzin", Code = "UNPAID" },
+            new LeaveType { Id = 5, Name = "Ölüm İzni", Code = "BEREAVEMENT" });
+
     }
 }
