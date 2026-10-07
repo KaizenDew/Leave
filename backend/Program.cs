@@ -33,7 +33,7 @@ using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDb>();
     db.Database.EnsureCreated();
-    if (!db.Users.Any())
+    if (app.Environment.IsDevelopment() && !db.Users.Any())
     {
         db.Users.AddRange(
             new User { FullName = "HR Admin", Email = "admin@leaveapp.com", PasswordHash = BCrypt.Net.BCrypt.HashPassword("Admin123!"), Role = "HrAdmin" },

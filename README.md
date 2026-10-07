@@ -2,10 +2,10 @@
 
 Çalışanların izin süreçlerini dijital olarak yönettiği HR / izin yönetim web uygulaması.
 
-| Katman | Teknoloji |
-|---|---|
-| Backend | .NET 10 Web API (Minimal API), EF Core + SQLite, JWT, BCrypt |
-| Frontend | React + TypeScript + Vite |
+| Katman   | Teknoloji                                                    |
+| -------- | ------------------------------------------------------------ |
+| Backend  | .NET 10 Web API (Minimal API), EF Core + SQLite, JWT, BCrypt |
+| Frontend | React + TypeScript + Vite                                    |
 
 ## Klasör yapısı
 
@@ -22,9 +22,9 @@ LeaveApp/
 
 ## Portlar
 
-| Servis | Adres |
-|---|---|
-| Backend API | http://localhost:5080 |
+| Servis          | Adres                 |
+| --------------- | --------------------- |
+| Backend API     | http://localhost:5080 |
 | Frontend (Vite) | http://localhost:5173 |
 
 Backend CORS ayarı yalnızca `http://localhost:5173` adresine izin verir; frontend'i farklı portta çalıştırırsanız `backend/Program.cs` içindeki CORS ayarı da güncellenmelidir.
@@ -87,11 +87,11 @@ Diğer komutlar: `npm run build` (derleme), `npm run lint` (oxlint), `npm run pr
 
 ## Seed (başlangıç) hesapları
 
-Veritabanı boşken backend ilk açılışta şu iki kullanıcıyı oluşturur:
+Seed yalnızca Development ortamında çalışır. Production'da hazır hesap oluşmaz:
 
-| Rol | E-posta | Şifre |
-|---|---|---|
-| HrAdmin | admin@leaveapp.com | Admin123! |
+| Rol      | E-posta               | Şifre        |
+| -------- | --------------------- | ------------ |
+| HrAdmin  | admin@leaveapp.com    | Admin123!    |
 | Employee | employee@leaveapp.com | Employee123! |
 
 > **Uyarı:** Bu hesaplar yalnızca geliştirme içindir. Şu anda seed her ortamda çalışmaktadır; yalnızca Development ortamına sınırlanması planlıdır (Aşama 0, T0.4). Gerçek bir ortama çıkmadan önce bu hesaplar kullanılmamalıdır.
